@@ -6,17 +6,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@Table(name = "scripts")
 public class Quote {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(nullable = false)
 	private String actor;
 
-	@Column(nullable = false)
+	@Column(name = "detail", nullable = false)
 	private String quote;
 
 
