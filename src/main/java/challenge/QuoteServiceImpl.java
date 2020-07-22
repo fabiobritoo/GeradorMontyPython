@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class QuoteServiceImpl implements QuoteService {
@@ -13,7 +14,7 @@ public class QuoteServiceImpl implements QuoteService {
 
 	@Override
 	public Quote getQuote() {
-		return repository.findById(2).get();
+		return repository.findRandomQuote().get();
 	}
 
 
@@ -23,7 +24,12 @@ public class QuoteServiceImpl implements QuoteService {
 
 	@Override
 	public Optional<Quote> getQuoteByActor(String actor) {
-		return repository.findByActor(actor);
+		System.out.println(repository.findByActor(actor).size());
+
+		Random rand = new Random();
+		Quote randomElement = repository.findByActor(actor).get(rand.nextInt(repository.findByActor(actor).size()));
+
+		return Optional.of(randomElement);
 	}
 
 }

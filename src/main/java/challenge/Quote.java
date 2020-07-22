@@ -3,6 +3,8 @@ package challenge;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -12,10 +14,9 @@ public class Quote {
 	@Id
 	private Integer id;
 
-	@Column(nullable = false)
 	private String actor;
 
-	@Column(name = "detail", nullable = false)
+	@Column(name = "detail")
 	private String quote;
 
 
