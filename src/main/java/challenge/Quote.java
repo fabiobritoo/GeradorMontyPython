@@ -1,14 +1,10 @@
 package challenge;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name = "scripts")
+@Entity(name = "scripts")
 public class Quote {
 
 	@Id
